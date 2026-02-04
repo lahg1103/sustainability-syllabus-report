@@ -14,7 +14,7 @@ I will be using bash exclusively for any terminal work. I strongly recommend usi
 Make sure to change to the correct directory you want to copy this project to.
 
 
-<details open>
+<details>
 <summary> Windows </summary>
 I'm using bash for my terminal, so a WSL has to be installed or use gitbash.
 
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 app.py run
 ```
 </details>
-<details open>
+<details>
 <summary>MacOS</summary>
 If you're on MacOS, you already have bash installed. Proceed on terminal.
 
