@@ -24,7 +24,7 @@ cd sustainability-syllabus-report.git
 python -m venv venv
 source venv/Scripts/activate
 pip install -r requirements.txt
-app.py run
+python app.py
 ```
 </details>
 <details>
@@ -37,7 +37,7 @@ cd sustainability-syllabus-report
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-app.py run
+python app.py
 ```
   
 </details>
