@@ -48,3 +48,9 @@ Always, make sure you pull from the working branch, and make sure that your virt
 ```bash
 pip install -r requirements.txt
 ```
+
+When running locally, the file upload size will be limited 200mb by default. Bypass this by using this as the run command:
+
+```bash
+streamlit run app.py --server.maxUploadSize 2000
+```
