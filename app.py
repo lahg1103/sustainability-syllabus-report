@@ -6,6 +6,7 @@ import zipfile
 import re
 import io
 import tempfile
+import classifier as c
 
 
 st.title('Syllabus Sustainability Analizer')
@@ -36,3 +37,23 @@ if uploaded_zip:
 
     extension_data = df['extension'].value_counts().to_dict()
     st.bar_chart(extension_data, horizontal=True)
+
+    st.write("Running sustainability classification...")
+
+    rows = c.analyze_folder(temp_path)
+
+    results_df = pd.DataFrame(rows)
+
+    st.subheader("Classification Results")
+    st.dataframe(results_df)
+
+    tier_counts = results_df["tier"].value_counts().sort_index()
+    st.bar_chart(tier_counts)
+    
+    tier_labels = {
+        0: "No Sustainability Mention",
+        1: "Mentions Sustainability",
+        2: "Has Sustainability Assignments"
+    }
+
+    results_df["tier_label"] = results_df["tier"].map(tier_labels)
