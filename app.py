@@ -49,7 +49,7 @@ if uploaded_zip:
 
     tier_counts = results_df["tier"].value_counts().sort_index()
     st.bar_chart(tier_counts)
-    
+
     tier_labels = {
         0: "No Sustainability Mention",
         1: "Mentions Sustainability",
@@ -57,3 +57,12 @@ if uploaded_zip:
     }
 
     results_df["tier_label"] = results_df["tier"].map(tier_labels)
+
+    csv_data = results_df.to_csv(index=False).encode("utf-8")
+
+    st.download_button(
+        label="Download Results as CSV",
+        data=csv_data,
+        file_name="sustainability_classification_results.csv",
+        mime="text/csv"
+    )
